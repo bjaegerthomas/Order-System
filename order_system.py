@@ -119,7 +119,7 @@ def update_order(order, menu_selection, menu_items):
 
             # TODO: Ask the customer for the quantity of the menu item
             # TODO: Use the item name variable in the question
-            quantity = input(f"What quantity of {item_name} would you like?\n(This will default to 1 if number is not entered)")
+            quantity = input(f"What quantity of {item_name} would you like?\n(This will default to 1 if number is not entered)\n")
 
             # TODO: Check if the quantity is a number, default to 1 if not
             if not quantity.isdigit():
