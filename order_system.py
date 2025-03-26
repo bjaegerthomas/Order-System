@@ -68,7 +68,7 @@ def place_order(menu):
 
         # TODO: Write a conditional statement that checks the user's input
         # TODO: The conditional statement should check for 'n' or 'N'
-        if input().lower() == 'n':
+        if choice.lower() == 'n':
 
             # TODO: Write a print statement that thanks the customer for their order
             print("Thank you for your order!")
@@ -87,8 +87,7 @@ def place_order(menu):
             # TODO: Exit the ordering loop
             # TODO: Either use a break statement or set the condition to False
             break
-        else:
-            place_order(meals)
+
     # TODO: Return the order list and the order total
 
     return order, order_total
@@ -123,21 +122,23 @@ def update_order(order, menu_selection, menu_items):
             quantity = input(f"How many {item_name} would you like to order? ")
 
             # TODO: Check if the quantity is a number, default to 1 if not
-            if quantity.isdigit():
-
+            if not quantity.isdigit():
+                print("Invalid quantity. Defaulting to 1.")
+                quantity = 1
+            else:
+                quantity = int(quantity)
             # TODO: Add a dictionary to the order list 
             # TODO: The dictionary should include the item name, price, and quantity
             # TODO: Use the following names for the dictionary keys:
             # TODO: "Item name", "Price", "Quantity"
-                order.append({
-                    "Item name": item_name,
-                    "Price": menu_items[menu_selection]["Price"],
-                    "Quantity": int(quantity)
-                })
+            order.append({
+                "Item name": item_name,
+                "Price": menu_items[menu_selection]["Price"],
+                "Quantity": int(quantity)
+            })
         # TODO: When the user's input isn't valid, 
         # TODO: tell the customer that their input isn't valid
-            else:
-                print("Sorry, that is not a valid quantity.")
+            
     # TODO: When the menu selection wasn't valid:
     # TODO: Print the menu selection and 
     # TODO: Tell the customer they didn't select a menu option
