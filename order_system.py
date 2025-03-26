@@ -87,8 +87,10 @@ def place_order(menu):
             # TODO: Exit the ordering loop
             # TODO: Either use a break statement or set the condition to False
             break
-
+        else:
+            place_order(meals)
     # TODO: Return the order list and the order total
+
     return order, order_total
 
 def update_order(order, menu_selection, menu_items):
