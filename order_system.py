@@ -31,7 +31,7 @@ def place_order(menu):
     while True:
     
         # TODO: Ask the customer what they want to order
-        print ("What would you like to order?")
+        print("What would you like to order? ")
 
         # Create a variable for the menu item number
         i = 1
@@ -55,7 +55,7 @@ def place_order(menu):
                 i += 1
 
         # TODO: Ask customer to input menu item number
-        menu_selection = input("Please enter the menu item number: ")
+        menu_selection = input("Type menu number:")
 
         # TODO: Update the order list using the update_order function
         # TODO: Send the order list, menu selection, and menu items as arguments
@@ -63,7 +63,7 @@ def place_order(menu):
 
         # TODO: Ask the customer if they would like to order anything else
         # TODO: Let the customer know if they should type 'n' or 'N' to quit
-        choice = input("Would you like to order anything else? (Type 'n' or 'N' to quit): ")
+        choice = input("Would you like to keep ordering? (N)o to quit")
 
 
         # TODO: Write a conditional statement that checks the user's input
@@ -119,11 +119,11 @@ def update_order(order, menu_selection, menu_items):
 
             # TODO: Ask the customer for the quantity of the menu item
             # TODO: Use the item name variable in the question
-            quantity = input(f"How many {item_name} would you like to order? ")
+            quantity = input(f"What quantity of {item_name} would you like?\n(This will default to 1 if number is not entered)")
 
             # TODO: Check if the quantity is a number, default to 1 if not
             if not quantity.isdigit():
-                print("Invalid quantity. Defaulting to 1.")
+                print("Invalid quantity.")
                 quantity = 1
             else:
                 quantity = int(quantity)
@@ -139,12 +139,12 @@ def update_order(order, menu_selection, menu_items):
         # TODO: When the user's input isn't valid, 
         # TODO: tell the customer that their input isn't valid
         else:
-            print(f"Sorry, {menu_selection} is not a valid menu item number.")   
+            print("Sorry, that number isn't an option.")   
     # TODO: When the menu selection wasn't valid:
     # TODO: Print the menu selection and 
     # TODO: Tell the customer they didn't select a menu option
     else:
-        print("Incorrect input. You did not select a menu option.")
+        print(f"{menu_selection} was not a menu option.")
 
     # TODO: Return the updated order
     return order
