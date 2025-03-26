@@ -31,7 +31,7 @@ def place_order(menu):
     while True:
     
         # TODO: Ask the customer what they want to order
-        print("What would you like to order? ")
+        print("What would you like to order?")
 
         # Create a variable for the menu item number
         i = 1
@@ -63,7 +63,7 @@ def place_order(menu):
 
         # TODO: Ask the customer if they would like to order anything else
         # TODO: Let the customer know if they should type 'n' or 'N' to quit
-        choice = input("Would you like to keep ordering? (N)o to quit")
+        choice = input("Would you like to keep ordering? (N)o to quit:")
 
 
         # TODO: Write a conditional statement that checks the user's input
