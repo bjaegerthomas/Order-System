@@ -59,7 +59,7 @@ def place_order(menu):
 
         # TODO: Update the order list using the update_order function
         # TODO: Send the order list, menu selection, and menu items as arguments
-        order = update_order(order, choice, menu_items)
+        order = update_order(order, menu_selection, menu_items)
 
         # TODO: Ask the customer if they would like to order anything else
         # TODO: Let the customer know if they should type 'n' or 'N' to quit
@@ -112,31 +112,38 @@ def update_order(order, menu_selection, menu_items):
         menu_selection = int(menu_selection)
 
         # TODO: Check if the menu selection is in the menu items keys
-
+        if menu_selection in menu_items.keys():
             # TODO: Store the item name as a variable
-
+            item_name = menu_items[menu_selection]["Item name"]
 
             # TODO: Ask the customer for the quantity of the menu item
             # TODO: Use the item name variable in the question
-
+            quantity = input(f"How many {item_name} would you like to order? ")
 
             # TODO: Check if the quantity is a number, default to 1 if not
-
+            if quantity.isdigit():
 
             # TODO: Add a dictionary to the order list 
             # TODO: The dictionary should include the item name, price, and quantity
             # TODO: Use the following names for the dictionary keys:
             # TODO: "Item name", "Price", "Quantity"
-
+                order.append({
+                    "Item name": item_name,
+                    "Price": menu_items[menu_selection]["Price"],
+                    "Quantity": int(quantity)
+                })
         # TODO: When the user's input isn't valid, 
         # TODO: tell the customer that their input isn't valid
-
+            else:
+                print("Sorry, that is not a valid quantity.")
     # TODO: When the menu selection wasn't valid:
     # TODO: Print the menu selection and 
     # TODO: Tell the customer they didn't select a menu option
-
+        else:
+            print(f"Sorry, {menu_selection} is not a valid menu item number.")
 
     # TODO: Return the updated order
+    return order
 
 
 def print_itemized_receipt(receipt):
@@ -151,13 +158,16 @@ def print_itemized_receipt(receipt):
     #print(receipt)
 
     # TODO: Loop through the items in the customer's receipt
+    for item in receipt:
 
         # TODO Store the dictionary items as variables
-
+        item_name = item["Item name"]
+        price = item["Price"]
+        quantity = item["Quantity"]
 
         # TODO: Print the receipt line using the print_receipt_line function
         # TODO: Send the item name, price, and quantity as separate arguments
-
+        print_receipt_line(item_name, price, quantity)
 
 ##################################################
 #  STARTER CODE
